@@ -4,9 +4,9 @@ import "./meus-horariosM.css";
 const menuItems = [
   { label: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
   { label: "Meus Horários", icon: <ClockIcon />, to: "/meus-horarios" },
-  { label: "Agendamentos", icon: <CalendarIcon />, to: "#" },
-  { label: "Atendimentos", icon: <UsersIcon />, to: "#" },
-  { label: "Relatórios", icon: <FileIcon />, to: "#" },
+  { label: "Agendamentos", icon: <CalendarIcon />, to: "/agendamentos " },
+  { label: "Atendimentos", icon: <UsersIcon />, to: "/atendimentos" },
+  { label: "Relatórios", icon: <FileIcon />, to: "/atendimentos" },
 ];
 
 export default function MeusHorariosM() {
