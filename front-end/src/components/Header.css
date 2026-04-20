@@ -1,0 +1,82 @@
+.main-header-standard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 80px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+
+.header-title h2 {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0;
+}
+
+.header-right-side {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.top-icon-button {
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  color: #666;
+}
+
+.icon-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #d391ed; /* Seu lilás */
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.user-profile-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+}
+
+.user-text {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.user-text strong {
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.user-text span {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.user-avatar-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #d391ed;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
