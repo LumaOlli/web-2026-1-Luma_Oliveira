@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import SidebarMenu from "../components/SidebarMenu";
 import Header from '../components/Header';
 import "./AgendamentosM.css";
 
@@ -100,23 +101,27 @@ export default function AgendamentosM() {
         </div>
 
         <div className="appointments-sidebar-footer">
-          <button className="appointments-menu-item footer">
+          {/* CORREÇÃO AQUI: NavLink para Configurações */}
+          <NavLink 
+            to="/configuracoes" 
+            className={({ isActive }) => `appointments-menu-item footer${isActive ? " active" : ""}`}
+          >
             <span className="appointments-menu-icon"><SettingsIcon /></span>
             <span>Configurações</span>
-          </button>
-          <button className="appointments-menu-item footer logout">
+          </NavLink>
+          
+          {/* CORREÇÃO AQUI: NavLink para Sair */}
+          <NavLink to="/logout" className="appointments-menu-item footer logout">
             <span className="appointments-menu-icon"><LogoutIcon /></span>
             <span>Sair</span>
-          </button>
+          </NavLink>
         </div>
       </aside>
 
       {/* ÁREA DE CONTEÚDO PRINCIPAL */}
       <main className="appointments-content">
-        {/* HEADER PADRONIZADO */}
         <Header titulo="Visualizar Agendamentos" />
 
-        {/* CORPO DA PÁGINA (Com scroll interno se necessário) */}
         <div className="page-body">
           <section className="filters-row">
             <div className="filter-group search">
@@ -220,7 +225,7 @@ export default function AgendamentosM() {
   );
 }
 
-/* --- COMPONENTES DE ÍCONES (Mantidos como no original) --- */
+/* --- COMPONENTES DE ÍCONES --- */
 
 function IconBase({ children, viewBox = "0 0 24 24" }) {
   return (

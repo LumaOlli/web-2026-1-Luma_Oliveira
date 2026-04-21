@@ -1,70 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import SidebarMenu from "../components/SidebarMenu";
+import SidebarMenu from "../components/SidebarMenu"; // Importando o componente padronizado
 import Header from '../components/Header';
 import "./meus-horariosM.css";
-
-// Configuração do Menu Lateral
-const menuItems = [
-  { label: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
-  { label: "Meus Horários", icon: <ClockIcon />, to: "/meus-horarios" },
-  { label: "Agendamentos", icon: <CalendarIcon />, to: "/agendamentos" },
-  { label: "Atendimentos", icon: <UsersIcon />, to: "/atendimentos" },
-  { label: "Relatórios", icon: <FileIcon />, to: "/relatorios" },
-];
 
 export default function MeusHorariosM() {
   return (
     <div className="schedule-page">
-      {/* SIDEBAR */}
-      <aside className="schedule-sidebar">
-        <div>
-          <div className="schedule-brand">
-            <div className="schedule-brand-icon">
-              <CapIcon />
-            </div>
-            <div>
-              <h1>MMA UFERSA</h1>
-              <p>PORTAL DO MONITOR</p>
-            </div>
-          </div>
-
-          <nav className="schedule-nav">
-            {menuItems.map((item) => (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className={({ isActive }) =>
-                  `schedule-menu-item${isActive ? " active" : ""}`
-                }
-              >
-                <span className="schedule-menu-icon">{item.icon}</span>
-                <span>{item.label}</span>
-              </NavLink>
-            ))}
-          </nav>
-        </div>
-
-        <div className="schedule-sidebar-footer">
-          <button className="schedule-menu-item footer">
-            <span className="schedule-menu-icon">
-              <SettingsIcon />
-            </span>
-            <span>Configurações</span>
-          </button>
-
-          <button className="schedule-menu-item footer logout">
-            <span className="schedule-menu-icon">
-              <LogoutIcon />
-            </span>
-            <span>Sair</span>
-          </button>
-        </div>
-      </aside>
+      {/* CORREÇÃO: Usando o componente global para garantir que Configurações/Sair funcionem */}
+      <SidebarMenu />
 
       {/* CONTEÚDO PRINCIPAL */}
       <main className="schedule-content">
-        {/* PADRONIZAÇÃO: Header unificado para todo o sistema */}
         <Header titulo="Gestão de Disponibilidade" />
 
         <div className="page-wrapper">
@@ -155,7 +101,7 @@ export default function MeusHorariosM() {
   );
 }
 
-/* --- ÍCONES (Apenas os necessários para o corpo desta página) --- */
+/* --- ÍCONES ESPECÍFICOS DESTA PÁGINA (Apenas os que não estão na Sidebar) --- */
 
 function IconBase({ children, viewBox = "0 0 24 24" }) {
   return (
@@ -165,14 +111,6 @@ function IconBase({ children, viewBox = "0 0 24 24" }) {
   );
 }
 
-function DashboardIcon() { return <IconBase><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></IconBase>; }
-function ClockIcon() { return <IconBase><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></IconBase>; }
-function CalendarIcon() { return <IconBase><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></IconBase>; }
-function UsersIcon() { return <IconBase><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="9.5" cy="7" r="4" /></IconBase>; }
-function FileIcon() { return <IconBase><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" /><path d="M14 3v5h5" /></IconBase>; }
-function SettingsIcon() { return <IconBase><circle cx="12" cy="12" r="3" /><path d="M12 3l1.3 2.8 3.1.4-2.2 2.2.5 3.1-2.7-1.5-2.7 1.5.5-3.1" /></IconBase>; }
-function LogoutIcon() { return <IconBase><path d="M10 17l5-5-5-5" /><path d="M15 12H3" /><path d="M21 21V3" /></IconBase>; }
-function CapIcon() { return <IconBase><path d="m2 9 10-5 10 5-10 5-10-5Z" /><path d="M6 11.5v4.5c0 1.5 3 3 6 3s6-1.5 6-3v-4.5" /></IconBase>; }
 function PlusCircleIcon() { return <IconBase><circle cx="12" cy="12" r="9" /><path d="M12 8v8M8 12h8" /></IconBase>; }
 function CalendarMiniIcon() { return <IconBase><rect x="4" y="5" width="16" height="15" rx="2" /><path d="M15 3v4M9 3v4M4 10h16" /></IconBase>; }
 function ClockMiniIcon() { return <IconBase><circle cx="12" cy="12" r="8" /><path d="M12 8v5l3 2" /></IconBase>; }

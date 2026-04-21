@@ -1,17 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import SidebarMenu from "../components/SidebarMenu"; // Importação do componente unificado
 import Header from '../components/Header';
 import "./dashboard-monitoria.css";
 
-// Configuração do Menu Lateral
-const menuItems = [
-  { label: "Dashboard", icon: <DashboardIcon />, to: "/dashboard" },
-  { label: "Meus Horários", icon: <ClockIcon />, to: "/meus-horarios" },
-  { label: "Agendamentos", icon: <CalendarIcon />, to: "/agendamentos" },
-  { label: "Atendimentos", icon: <UsersIcon />, to: "/atendimentos" },
-  { label: "Relatórios", icon: <FileIcon />, to: "/relatorios" },
-];
-
+// Dados específicos das notificações do Dashboard
 const notices = [
   {
     title: "Cancelamento de Agendamento",
@@ -29,6 +21,7 @@ const notices = [
   },
 ];
 
+// Dados específicos dos próximos atendimentos
 const appointments = [
   {
     status: "AGORA",
@@ -53,43 +46,10 @@ const appointments = [
 export default function DashboardMonitoria() {
   return (
     <div className="monitor-dashboard">
-      {/* SIDEBAR */}
-      <aside className="sidebar">
-        <div>
-          <div className="brand">
-            <h1>MMA UFERSA</h1>
-            <p>PORTAL DO MONITOR</p>
-          </div>
+      {/* CORREÇÃO: Agora usamos o componente padronizado que já tem os NavLinks de Configurações e Sair */}
+      <SidebarMenu />
 
-          <nav className="sidebar-nav">
-            {menuItems.map((item) => (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className={({ isActive }) => `menu-item${isActive ? " active" : ""}`}
-              >
-                <span className="menu-icon">{item.icon}</span>
-                <span>{item.label}</span>
-              </NavLink>
-            ))}
-          </nav>
-        </div>
-
-        <div className="sidebar-footer">
-          <button className="menu-item footer-item">
-            <span className="menu-icon"><SettingsIcon /></span>
-            <span>Configurações</span>
-          </button>
-          <button className="menu-item footer-item">
-            <span className="menu-icon"><LogoutIcon /></span>
-            <span>Sair</span>
-          </button>
-        </div>
-      </aside>
-
-      {/* CONTEÚDO PRINCIPAL */}
       <main className="content">
-        {/* PADRONIZAÇÃO: Substituímos a topbar local pelo Header padrão */}
         <Header titulo="Dashboard de Monitoria" />
 
         <div className="dashboard-scroll-area">
@@ -224,27 +184,20 @@ export default function DashboardMonitoria() {
   );
 }
 
-/* --- ÍCONES (Mantidos conforme original) --- */
+/* --- ÍCONES INTERNOS DO DASHBOARD (Apenas os que não estão na Sidebar) --- */
 
 function IconBase({ children, viewBox = "0 0 24 24" }) {
   return (
-    <svg viewBox={viewBox} fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg viewBox={viewBox} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {children}
     </svg>
   );
 }
 
-function DashboardIcon() { return <IconBase><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></IconBase>; }
-function ClockIcon() { return <IconBase><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></IconBase>; }
-function CalendarIcon() { return <IconBase><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /></IconBase>; }
 function CalendarCheckIcon() { return <IconBase><rect x="3" y="5" width="18" height="16" rx="2" /><path d="m9 16 2 2 4-5" /></IconBase>; }
-function UsersIcon() { return <IconBase><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" /><circle cx="9.5" cy="7" r="4" /></IconBase>; }
-function FileIcon() { return <IconBase><path d="M14 3H7a2 2 0 0 0-2 2v14" /><path d="M14 3v5h5" /></IconBase>; }
-function SettingsIcon() { return <IconBase><circle cx="12" cy="12" r="3" /><path d="M12 3l1.3 2.8 3.1.4-2.2 2.2.5 3.1" /></IconBase>; }
-function LogoutIcon() { return <IconBase><path d="M10 17l5-5-5-5" /><path d="M21 21V3" /></IconBase>; }
 function MonitorIcon() {
   return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
+    <svg viewBox="0 0 64 64" aria-hidden="true" style={{ width: '100%' }}>
       <defs>
         <linearGradient id="screenGradient" x1="0%" x2="100%" y1="0%" y2="100%">
           <stop offset="0%" stopColor="#1bc2ff" /><stop offset="100%" stopColor="#ff5c7d" />
