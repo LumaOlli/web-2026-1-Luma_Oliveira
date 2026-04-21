@@ -1,3 +1,14 @@
+.agendar-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #f4f5f9;
+}
+
+.agendar-main {
+  flex: 1;
+  padding: 24px;
+}
+
 .agendar-page { color: #0a1b45; }
 .agendar-page h1 { margin: 0 0 4px; font-size: 2.1rem; }
 .step { margin: 0 0 16px; color: #667085; }
@@ -10,14 +21,7 @@
   margin-bottom: 14px;
 }
 
-.card h2 {
-  margin: 0 0 8px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  color: #667085;
-  letter-spacing: 0.06em;
-}
-
+.card h2 { margin: 0 0 8px; font-size: .9rem; text-transform: uppercase; color: #667085; }
 .card h3 { margin: 0 0 8px; font-size: 2rem; }
 .card h4 { margin: 0 0 10px; font-size: 1.2rem; }
 .big { font-size: 1.5rem; font-weight: 700; }
@@ -51,10 +55,10 @@ textarea {
   font-weight: 700;
   cursor: pointer;
 }
-
 .btn.primary { background: #052a63; color: #fff; }
 .btn.ghost { background: #fff; border-color: #ccd3df; color: #0a1b45; }
 
 @media (max-width: 980px) {
+  .agendar-shell { flex-direction: column; }
   .grid { grid-template-columns: 1fr; }
 }

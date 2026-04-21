@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import SidebarAluno from "../../components/SidebarAluno";
 import "./agendar-monitoria.css";
 
 export default function ConfirmacaoMonitoria() {
@@ -14,32 +15,44 @@ export default function ConfirmacaoMonitoria() {
     duvida: "Sem descricao informada.",
   };
 
+  function handleConfirmar() {
+    // aqui depois voce troca por chamada da API
+    alert("Agendamento confirmado com sucesso!");
+    navigate("/aluno/meus-agendamentos");
+  }
+
   return (
-    <div className="agendar-page">
-      <h1>Revise seu Agendamento</h1>
-      <p className="step">Passo 2 de 2 - Confirmacao Final</p>
+    <div className="agendar-shell">
+      <SidebarAluno />
 
-      <section className="card">
-        <p><b>Disciplina:</b> {info.disciplina}</p>
-        <p><b>Monitor:</b> {info.monitor}</p>
-        <p><b>Data:</b> {info.data}</p>
-        <p><b>Horario:</b> {info.horario}</p>
-        <p><b>Local:</b> {info.local}</p>
-      </section>
+      <main className="agendar-main">
+        <div className="agendar-page">
+          <h1>Revise seu Agendamento</h1>
+          <p className="step">Passo 2 de 2 - Confirmacao Final</p>
 
-      <section className="card">
-        <h4>Sua descricao da duvida</h4>
-        <p>{info.duvida || "Sem descricao informada."}</p>
-      </section>
+          <section className="card">
+            <p><b>Disciplina:</b> {info.disciplina}</p>
+            <p><b>Monitor:</b> {info.monitor}</p>
+            <p><b>Data:</b> {info.data}</p>
+            <p><b>Horario:</b> {info.horario}</p>
+            <p><b>Local:</b> {info.local}</p>
+          </section>
 
-      <div className="actions">
-        <button className="btn ghost" onClick={() => navigate(-1)}>
-          Voltar e Editar
-        </button>
-        <button className="btn primary">
-          Confirmar Agendamento
-        </button>
-      </div>
+          <section className="card">
+            <h4>Sua descricao da duvida</h4>
+            <p>{info.duvida || "Sem descricao informada."}</p>
+          </section>
+
+          <div className="actions">
+            <button className="btn ghost" onClick={() => navigate(-1)}>
+              Voltar e Editar
+            </button>
+            <button className="btn primary" onClick={handleConfirmar}>
+              Confirmar Agendamento
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
