@@ -1,0 +1,10 @@
+/* ConfirmacaoMonitoria.css */
+.confirm-page { padding: 32px; background: #f4f5f9; min-height: 100vh; color: #0a1b45; font-family: Arial, sans-serif; }
+h1 { margin: 0 0 4px; font-size: 34px; }
+.step { margin: 0 0 18px; color: #6b7280; }
+.confirm-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 14px; }
+.confirm-card div, .confirm-card p { margin: 8px 0; font-size: 17px; }
+.actions { margin-top: 16px; display: flex; justify-content: flex-start; gap: 10px; }
+.btn { height: 46px; padding: 0 24px; border-radius: 8px; border: 1px solid transparent; font-weight: 700; cursor: pointer; }
+.btn.primary { background: #032a63; color: #fff; }
+.btn.ghost { background: #fff; border-color: #cbd5e1; color: #0a1b45; }
