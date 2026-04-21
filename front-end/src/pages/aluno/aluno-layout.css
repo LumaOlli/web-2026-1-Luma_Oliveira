@@ -1,0 +1,16 @@
+.aluno-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background: #f4f5f9;
+}
+
+.aluno-main {
+  padding: 24px;
+}
+
+@media (max-width: 980px) {
+  .aluno-layout {
+    grid-template-columns: 1fr;
+  }
+}
