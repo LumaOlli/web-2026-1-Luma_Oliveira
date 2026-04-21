@@ -32,24 +32,33 @@ export default function SidebarMenu() {
       </div>
 
       <div className="sidebar-footer">
-        <button className="menu-item footer-item">
+        {/* CONFIGURAÇÕES: Agora como NavLink para chamar a tela de settings */}
+        <NavLink 
+          to="/configuracoes" 
+          className={({ isActive }) => `menu-item footer-item${isActive ? " active" : ""}`}
+        >
           <span className="menu-icon">
             <SettingsIcon />
           </span>
           <span>Configurações</span>
-        </button>
+        </NavLink>
 
-        <button className="menu-item footer-item logout">
+        {/* SAIR: Agora como NavLink para chamar a tela de logout */}
+        <NavLink 
+          to="/logout" 
+          className="menu-item footer-item logout"
+        >
           <span className="menu-icon">
             <LogoutIcon />
           </span>
           <span>Sair</span>
-        </button>
+        </NavLink>
       </div>
     </aside>
   );
 }
 
+// --- Mantenha seus componentes de Ícones abaixo exatamente como estão ---
 function IconBase({ children, viewBox = "0 0 24 24" }) {
   return (
     <svg
@@ -66,71 +75,10 @@ function IconBase({ children, viewBox = "0 0 24 24" }) {
   );
 }
 
-function DashboardIcon() {
-  return (
-    <IconBase>
-      <rect x="3" y="3" width="7" height="7" />
-      <rect x="14" y="3" width="7" height="7" />
-      <rect x="3" y="14" width="7" height="7" />
-      <rect x="14" y="14" width="7" height="7" />
-    </IconBase>
-  );
-}
-
-function ClockIcon() {
-  return (
-    <IconBase>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
-    </IconBase>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <IconBase>
-      <rect x="3" y="5" width="18" height="16" rx="2" />
-      <path d="M16 3v4M8 3v4M3 10h18" />
-      <path d="M8 14h.01M12 14h.01M16 14h.01" />
-    </IconBase>
-  );
-}
-
-function ClipboardUserIcon() {
-  return (
-    <IconBase>
-      <path d="M9 3h6l1 2h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2l1-2Z" />
-      <circle cx="12" cy="11" r="2.5" />
-      <path d="M8.5 18a4 4 0 0 1 7 0" />
-    </IconBase>
-  );
-}
-
-function FileIcon() {
-  return (
-    <IconBase>
-      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
-      <path d="M14 3v5h5" />
-      <path d="M9 13h6M9 17h6" />
-    </IconBase>
-  );
-}
-
-function SettingsIcon() {
-  return (
-    <IconBase>
-      <path d="M12 3l1.3 2.8 3.1.4-2.2 2.2.5 3.1-2.7-1.5-2.7 1.5.5-3.1L7.6 6.2l3.1-.4L12 3Z" />
-      <circle cx="12" cy="12" r="3" />
-    </IconBase>
-  );
-}
-
-function LogoutIcon() {
-  return (
-    <IconBase>
-      <path d="M10 17l5-5-5-5" />
-      <path d="M15 12H3" />
-      <path d="M21 21V3" />
-    </IconBase>
-  );
-}
+function DashboardIcon() { return <IconBase><rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="3" y="14" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /></IconBase>; }
+function ClockIcon() { return <IconBase><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></IconBase>; }
+function CalendarIcon() { return <IconBase><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18" /><path d="M8 14h.01M12 14h.01M16 14h.01" /></IconBase>; }
+function ClipboardUserIcon() { return <IconBase><path d="M9 3h6l1 2h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2l1-2Z" /><circle cx="12" cy="11" r="2.5" /><path d="M8.5 18a4 4 0 0 1 7 0" /></IconBase>; }
+function FileIcon() { return <IconBase><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" /><path d="M14 3v5h5" /><path d="M9 13h6M9 17h6" /></IconBase>; }
+function SettingsIcon() { return <IconBase><path d="M12 3l1.3 2.8 3.1.4-2.2 2.2.5 3.1-2.7-1.5-2.7 1.5.5-3.1L7.6 6.2l3.1-.4L12 3Z" /><circle cx="12" cy="12" r="3" /></IconBase>; }
+function LogoutIcon() { return <IconBase><path d="M10 17l5-5-5-5" /><path d="M15 12H3" /><path d="M21 21V3" /></IconBase>; }
