@@ -1,9 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import DashboardMonitoria from "./pages/DashboardMonitoria";
-import MeusHorariosM from "./pages/MeusHorariosM";
-import AgendamentosM from "./pages/AgendamentosM";
-import AtendimentosRegistro from "./pages/AtendimentosRegistroM";
-import RelatoriosM from "./pages/RelatoriosM";
+import DashboardMonitoria from "./pages/monitor/DashboardMonitoria";
+import MeusHorariosM from "./pages/monitor/MeusHorarios";
+import AgendamentosM from "./pages/monitor/Agendamentos";
+import AtendimentosRegistro from "./pages/monitor/AtendimentosRegistro";
+import RelatoriosM from "./pages/monitor/Relatorios";
 import SettingsM from "./pages/Settings"; // 1. IMPORTAR A TELA DE SETTINGS
 import Logout from "./pages/Logout"; // Importar a tela de logout que fizemos
 import "./App.css";
