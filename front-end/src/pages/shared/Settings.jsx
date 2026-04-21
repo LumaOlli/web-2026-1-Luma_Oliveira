@@ -1,6 +1,6 @@
 import React from "react";
-import SidebarMenu from "../components/SidebarMenu";
-import Header from "../components/Header";
+import SidebarMenu from "../../components/SidebarMenu";
+import Header from "../../components/Header";
 import "./settings.css";
 
 export default function Settings() {

@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarMenu from "../../components/SidebarMenu"; // Importando o componente padronizado
 import Header from '../../components/Header';
-import "./meus-horariosM.css";
+import "./meus-horarios.css";
 
 export default function MeusHorariosM() {
   return (

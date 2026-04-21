@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import SidebarMenu from "../../components/SidebarMenu";
 import Header from '../../components/Header';
-import "./AgendamentosM.css";
+import "./Agendamentos.css";
 
 // Configuração do Menu Lateral
 const menuItems = [

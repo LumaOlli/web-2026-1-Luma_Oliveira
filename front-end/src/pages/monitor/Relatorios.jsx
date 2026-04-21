@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarMenu from "../../components/SidebarMenu";
 import Header from '../../components/Header'; // Seu componente padronizado
-import "./relatoriosM.css";
+import "./relatorios.css";
 
 const guidelines = [
   "O relatório deve ser preenchido de forma imparcial e profissional.",

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import SidebarMenu from "../components/SidebarMenu";
+import SidebarMenu from "../../components/SidebarMenu";
 import "./logout.css";
 
 export default function Logout() {

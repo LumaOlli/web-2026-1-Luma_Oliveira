@@ -1,6 +1,6 @@
 import React from "react";
-import SidebarMenu from "../components/SidebarMenu"; // Importação do componente unificado
-import Header from '../components/Header';
+import SidebarMenu from "../../components/SidebarMenu"; // Importação do componente unificado
+import Header from '../../components/Header';
 import "./dashboard-monitoria.css";
 
 // Dados específicos das notificações do Dashboard
