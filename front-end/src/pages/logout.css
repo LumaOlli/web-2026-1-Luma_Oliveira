@@ -1,0 +1,152 @@
+.logout-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f9fc; /* Fundo suave */
+  font-family: 'Inter', sans-serif;
+}
+
+.logout-topbar {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eef2f7;
+  background: white;
+}
+
+.brand-name {
+  color: #0b2552;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.help-icon {
+  width: 24px;
+  height: 24px;
+  background: #94a3b8;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.logout-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.logout-card {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  padding: 60px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+  text-align: center;
+}
+
+.success-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: #f1f5f9;
+  color: #0b2552;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+
+.success-icon-wrapper svg {
+  width: 28px;
+}
+
+.logout-card h1 {
+  color: #0b2552;
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.logout-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.re-access-button {
+  background: #0b2552; /* Marinho escuro */
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+
+.re-access-button:hover {
+  background: #081a3a;
+  transform: translateY(-2px);
+}
+
+.card-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 40px 0 25px;
+}
+
+.atelier-brand {
+  color: #94a3b8;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+.decorative-arch {
+  margin-top: 40px;
+  opacity: 0.8;
+}
+
+.decorative-arch img {
+  width: 180px;
+  border-radius: 10px;
+}
+
+.logout-footer {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  border-top: 1px solid #eef2f7;
+}
+
+.footer-left strong {
+  color: #0b2552;
+  margin-right: 10px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right a {
+  text-decoration: none;
+  color: inherit;
+}
