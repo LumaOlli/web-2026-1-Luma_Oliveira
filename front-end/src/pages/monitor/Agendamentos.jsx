@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import SidebarMenu from "../components/SidebarMenu";
-import Header from '../components/Header';
+import SidebarMenu from "../../components/SidebarMenu";
+import Header from '../../components/Header';
 import "./AgendamentosM.css";
 
 // Configuração do Menu Lateral

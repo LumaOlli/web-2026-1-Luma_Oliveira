@@ -1,6 +1,6 @@
 import React from "react";
-import SidebarMenu from "../components/SidebarMenu";
-import Header from '../components/Header'; // Seu componente padronizado
+import SidebarMenu from "../../components/SidebarMenu";
+import Header from '../../components/Header'; // Seu componente padronizado
 import "./relatoriosM.css";
 
 const guidelines = [
