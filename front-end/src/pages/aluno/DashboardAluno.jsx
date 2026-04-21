@@ -1,91 +1,158 @@
-import React from 'react';
-import SidebarAluno from '../components/SidebarAluno';
-import Header from '../components/Header';
-import './DashboardAluno.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import SidebarAluno from "../../components/SidebarAluno";
+import "./dashboard-aluno.css";
 
-const DashboardAluno = () => {
+const agendamentos = [
+  {
+    id: 1,
+    horario: "HOJE as 14:00",
+    disciplina: "Calculo Diferencial e Integral I",
+    monitor: "Andre Silveira",
+    local: "Laboratorio de Informatica 02",
+    tag: "gold",
+  },
+  {
+    id: 2,
+    horario: "QUI as 10:30",
+    disciplina: "Arquitetura de Computadores",
+    monitor: "Ana Costa",
+    local: "Google Meet (Link no e-mail)",
+    tag: "blue",
+  },
+];
+
+const atividades = [
+  {
+    id: 1,
+    titulo: "Agendamento Confirmado",
+    texto: "Sua solicitacao para Arquitetura foi aceita pela monitora.",
+    tempo: "HA 2 HORAS",
+  },
+  {
+    id: 2,
+    titulo: "Material Disponibilizado",
+    texto: "Novas listas de exercicios de Calculo I no portal.",
+    tempo: "ONTEM",
+  },
+  {
+    id: 3,
+    titulo: "Duvida Respondida",
+    texto: "O monitor Andre respondeu sua pergunta sobre integrais.",
+    tempo: "2 DIAS ATRAS",
+  },
+  {
+    id: 4,
+    titulo: "Sessao Concluida",
+    texto: "Voce participou da monitoria de Algoritmos.",
+    tempo: "3 DIAS ATRAS",
+  },
+];
+
+export default function DashboardAluno() {
   return (
-    <div className="dashboard-container">
-      <SidebarAluno />
-      
-      <main className="dashboard-main">
-        <Header userRole="Discente" userName="Marcos Oliveira" />
+    <div className="dashboard-page">
+      <aside className="sidebar">
+        <div className="brand">
+          <div className="brand-logo">M</div>
+          <div>
+            <h1>MONITORIA MMA</h1>
+            <p>PORTAL DISCENTES</p>
+          </div>
+        </div>
 
-        <div className="dashboard-content">
-          {/* Banner de Boas-vindas */}
-          <section className="welcome-banner">
-            <div className="banner-text">
-              <h1>Bem-vindo ao Atelier Académico</h1>
-              <p>Sua jornada de monitoria centralizada. Organize seus estudos, agende encontros e acompanhe seu desempenho em um só lugar.</p>
-              <div className="banner-buttons">
-                <button className="btn-primary-yellow">📅 Novo Agendamento</button>
-                <button className="btn-secondary-outline">Ver Meu Histórico</button>
+        <nav className="menu">
+          <a className="menu-item active" href="#">Dashboard</a>
+          <a className="menu-item" href="#">Buscar Horarios</a>
+          <a className="menu-item" href="#">Meus Agendamentos</a>
+          <a className="menu-item" href="#">Historico</a>
+        </nav>
+
+        <div className="menu-bottom">
+          <a className="menu-item" href="#">Configuracoes</a>
+          <a className="menu-item" href="#">Sair</a>
+        </div>
+      </aside>
+
+      <main className="main">
+        <header className="topbar">
+          <input
+            className="search-top"
+            placeholder="Buscar disciplinas ou codigos..."
+          />
+          <div className="user-box">
+            <strong>Marcos Oliveira</strong>
+            <span>2023004562</span>
+          </div>
+        </header>
+
+        <div className="content-grid">
+          <section className="left-col">
+            <section className="hero">
+              <div>
+                <h2>Bem-vindo ao Moodulo de Monitoria Academico</h2>
+                <p>
+                  Sua jornada de monitoria centralizada. Organize seus estudos,
+                  agende encontros e acompanhe seu desempenho em um so lugar.
+                </p>
+                <div className="hero-actions">
+                  <button className="btn btn-yellow">Novo Agendamento</button>
+                  <button className="btn btn-dark">Ver Meu Historico</button>
+                </div>
               </div>
-            </div>
-            <div className="banner-illustration"></div>
+              <div className="hero-shape" />
+            </section>
+
+            <section className="section-head">
+              <div>
+                <h3>Proximos Agendamentos</h3>
+                <p>Seus encontros confirmados para esta semana</p>
+              </div>
+              <a href="#">Ver Todos</a>
+            </section>
+
+            <section className="cards">
+              {agendamentos.map((item) => (
+                <article key={item.id} className={`card ${item.tag}`}>
+                  <span className="badge">{item.horario}</span>
+                  <h4>{item.disciplina}</h4>
+                  <p>Monitor(a): {item.monitor}</p>
+                  <hr />
+                  <p>{item.local}</p>
+                </article>
+              ))}
+            </section>
+
+            <section className="quick-search">
+              <h3>Busca Rapida de Disciplinas</h3>
+              <div className="quick-row">
+                <input placeholder="Ex: Algoritmos ou CT0012" />
+                <button>Pesquisar</button>
+              </div>
+              <div className="chips">
+                <span>Algoritmos</span>
+                <span>Fisica II</span>
+                <span>Estatistica</span>
+                <span>Eng. Software</span>
+              </div>
+            </section>
           </section>
 
-          <div className="dashboard-grid">
-            <div className="left-column">
-              {/* Próximos Agendamentos */}
-              <section className="appointments-section">
-                <div className="section-header">
-                  <h2>Próximos Agendamentos</h2>
-                  <a href="/todos">Ver Todos →</a>
-                </div>
-                <div className="appointments-cards">
-                  <article className="appointment-card border-yellow">
-                    <span className="badge-yellow">HOJE às 14:00</span>
-                    <h3>Cálculo Diferencial e Integral I</h3>
-                    <p>👤 Monitor: André Silveira</p>
-                    <p>📍 Laboratório de Informática 02</p>
-                  </article>
-                  <article className="appointment-card border-blue">
-                    <span className="badge-blue">QUI às 10:30</span>
-                    <h3>Arquitetura de Computadores</h3>
-                    <p>👤 Monitora: Ana Costa</p>
-                    <p>🎥 Google Meet (Link no e-mail)</p>
-                  </article>
-                </div>
-              </section>
-
-              {/* Busca Rápida */}
-              <section className="quick-search-card">
-                <h3>Busca Rápida de Disciplinas</h3>
-                <div className="search-input-group">
-                  <input type="text" placeholder="Ex: Algoritmos ou CT0012" />
-                  <button className="btn-search">Pesquisar</button>
-                </div>
-                <div className="suggestions">
-                  <span>Sugestões:</span>
-                  {['Algoritmos', 'Física II', 'Estatística', 'Eng. Software'].map(item => (
-                    <span key={item} className="suggestion-pill">{item}</span>
-                  ))}
-                </div>
-              </section>
-            </div>
-
-            {/* Atividades Recentes (Direita) */}
-            <aside className="recent-activities">
-              <h3>Atividades Recentes</h3>
-              <ul className="timeline">
-                <li className="timeline-item">
-                  <div className="status-dot green"></div>
-                  <div className="timeline-content">
-                    <strong>Agendamento Confirmado</strong>
-                    <p>Sua solicitação para Arquitetura foi aceita pela monitora.</p>
-                    <small>HÁ 2 HORAS</small>
-                  </div>
+          <aside className="timeline">
+            <h3>Atividades Recentes</h3>
+            <ul>
+              {atividades.map((a) => (
+                <li key={a.id}>
+                  <strong>{a.titulo}</strong>
+                  <p>{a.texto}</p>
+                  <small>{a.tempo}</small>
                 </li>
-                {/* Repetir itens conforme protótipo */}
-              </ul>
-              <button className="btn-full-history">Ver registro completo</button>
-            </aside>
-          </div>
+              ))}
+            </ul>
+            <button className="full-btn">Ver registro completo</button>
+          </aside>
         </div>
       </main>
     </div>
   );
-};
-
-export default DashboardAluno;
+}
