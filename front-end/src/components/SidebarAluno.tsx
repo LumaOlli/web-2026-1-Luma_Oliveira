@@ -1,6 +1,5 @@
 import type { ReactNode } from "react"; 
 import { NavLink } from "react-router-dom";
-import "./SidebarAluno.css";
 
 interface MenuItem {
   label: string;
