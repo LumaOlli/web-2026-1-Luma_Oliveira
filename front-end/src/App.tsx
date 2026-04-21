@@ -4,8 +4,8 @@ import MeusHorariosM from "./pages/monitor/MeusHorarios";
 import AgendamentosM from "./pages/monitor/Agendamentos";
 import AtendimentosRegistro from "./pages/monitor/AtendimentosRegistro";
 import RelatoriosM from "./pages/monitor/Relatorios";
-import SettingsM from "./pages/Settings"; // 1. IMPORTAR A TELA DE SETTINGS
-import Logout from "./pages/Logout"; // Importar a tela de logout que fizemos
+import SettingsM from "./pages/shared/Settings"; // 1. IMPORTAR A TELA DE SETTINGS
+import Logout from "./pages/shared/Logout"; // Importar a tela de logout que fizemos
 import "./App.css";
 
 function App() {
