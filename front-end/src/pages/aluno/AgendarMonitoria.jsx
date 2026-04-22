@@ -23,7 +23,6 @@ export default function AgendarMonitoria() {
 
   return (
     <div className="agendar-shell">
-      <SidebarAluno />
 
       <main className="agendar-main">
         <form className="agendar-page" onSubmit={handleProximo}>

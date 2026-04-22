@@ -23,7 +23,6 @@ export default function ConfirmacaoMonitoria() {
 
   return (
     <div className="agendar-shell">
-      <SidebarAluno />
 
       <main className="agendar-main">
         <div className="agendar-page">

@@ -50,24 +50,6 @@ const horarios = [
 export default function BuscarHorarios() {
   return (
     <div className="bh-page">
-      <aside className="bh-sidebar">
-        <div className="bh-logo">
-          <h1>Monitoria Academica</h1>
-          <p>Portal Academico</p>
-        </div>
-
-        <nav className="bh-menu">
-          <a href="#" className="bh-item">Dashboard</a>
-          <a href="#" className="bh-item active">Buscar Horarios</a>
-          <a href="#" className="bh-item">Meus Agendamentos</a>
-          <a href="#" className="bh-item">Minhas Monitorias</a>
-        </nav>
-
-        <div className="bh-bottom">
-          <a href="#" className="bh-item">Configuracoes</a>
-          <a href="#" className="bh-item sair">Sair</a>
-        </div>
-      </aside>
 
       <main className="bh-main">
         <header className="bh-topbar">

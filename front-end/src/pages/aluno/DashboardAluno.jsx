@@ -52,27 +52,6 @@ const atividades = [
 export default function DashboardAluno() {
   return (
     <div className="dashboard-page">
-      <aside className="sidebar">
-        <div className="brand">
-          <div className="brand-logo">M</div>
-          <div>
-            <h1>MONITORIA MMA</h1>
-            <p>PORTAL DISCENTES</p>
-          </div>
-        </div>
-
-        <nav className="menu">
-          <a className="menu-item active" href="#">Dashboard</a>
-          <a className="menu-item" href="#">Buscar Horarios</a>
-          <a className="menu-item" href="#">Meus Agendamentos</a>
-          <a className="menu-item" href="#">Minhas Monitorias</a>
-        </nav>
-
-        <div className="menu-bottom">
-          <a className="menu-item" href="#">Configuracoes</a>
-          <a className="menu-item" href="#">Sair</a>
-        </div>
-      </aside>
 
       <main className="main">
         <header className="topbar">

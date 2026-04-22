@@ -42,7 +42,6 @@ const historico = [
 export default function MinhasMonitorias() {
   return (
     <div className="mm-shell">
-      <SidebarAluno />
 
       <main className="mm-main">
         <header className="mm-topbar">
