@@ -1,4 +1,5 @@
 // src/pages/coordenador/GerenciarDisciplinas.jsx
+import { useNavigate } from "react-router-dom";
 import SidebarCoord from "../../components/SidebarCoordenador";
 import "./gerenciar-disciplinas.css";
 
@@ -11,38 +12,28 @@ const disciplinas = [
 ];
 
 export default function GerenciarDisciplinas() {
+  const navigate = useNavigate();
+
+  const goNova = () => navigate("/coordenador/disciplinas/nova");
+  const goEditar = (id) => navigate(`/coordenador/disciplinas/editar/${id.replace("#", "")}`);
+  const goExcluir = (id) => navigate(`/coordenador/disciplinas/excluir/${id.replace("#", "")}`);
+
   return (
     <div className="gd-page">
       <SidebarCoord />
 
       <main className="gd-main">
-        <header className="gd-topbar">
-          <h1>Modulo de Monitoria Academica</h1>
-          <div className="gd-topbar-right">
-            <div className="gd-search-top">
-              <SearchIcon />
-              <input placeholder="Search resources..." />
-            </div>
-            <BellIcon />
-            <div className="gd-profile">
-              <div>
-                <strong>Coordenacao MMA</strong>
-                <span>UFERSA Administrator</span>
-              </div>
-              <UserIcon />
-            </div>
-          </div>
-        </header>
-
         <section className="gd-head">
           <div>
-            <p className="gd-breadcrumb">PORTAL / DISCIPLINAS</p>
             <h2>Gerenciar Disciplinas</h2>
             <p className="gd-sub">
               Visualize and configure academic courses for the current semester monitoring program.
             </p>
           </div>
-          <button className="gd-create-btn"><PlusIcon /> Criar Nova Disciplina</button>
+
+          <button type="button" className="gd-create-btn" onClick={goNova}>
+            <PlusIcon /> Criar Nova Disciplina
+          </button>
         </section>
 
         <section className="gd-summary">
@@ -61,8 +52,8 @@ export default function GerenciarDisciplinas() {
             <SearchIcon />
             <input placeholder="Filtrar por nome da disciplina ou codigo..." />
           </div>
-          <button className="gd-light-btn"><FilterIcon /> Departamento</button>
-          <button className="gd-light-btn"><DownloadIcon /> Exportar</button>
+          <button type="button" className="gd-light-btn"><FilterIcon /> Departamento</button>
+          <button type="button" className="gd-light-btn"><DownloadIcon /> Exportar</button>
         </section>
 
         <section className="gd-table-wrap">
@@ -76,6 +67,7 @@ export default function GerenciarDisciplinas() {
                 <th>ACOES</th>
               </tr>
             </thead>
+
             <tbody>
               {disciplinas.map((d) => (
                 <tr key={d.id}>
@@ -90,8 +82,12 @@ export default function GerenciarDisciplinas() {
                   <td><span className="gd-code">{d.codigo}</span></td>
                   <td>{d.dep}</td>
                   <td className="gd-actions">
-                    <button><EditIcon /></button>
-                    <button className="danger"><TrashIcon /></button>
+                    <button type="button" onClick={() => goEditar(d.id)} title="Editar">
+                      <EditIcon />
+                    </button>
+                    <button type="button" className="danger" onClick={() => goExcluir(d.id)} title="Remover">
+                      <TrashIcon />
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -101,13 +97,13 @@ export default function GerenciarDisciplinas() {
           <div className="gd-footer">
             <p>Mostrando <strong>1 - 5</strong> de <strong>142</strong> disciplinas</p>
             <div className="gd-pagination">
-              <button>‹</button>
-              <button className="active">1</button>
-              <button>2</button>
-              <button>3</button>
+              <button type="button">‹</button>
+              <button type="button" className="active">1</button>
+              <button type="button">2</button>
+              <button type="button">3</button>
               <span>…</span>
-              <button>28</button>
-              <button>›</button>
+              <button type="button">28</button>
+              <button type="button">›</button>
             </div>
           </div>
         </section>
@@ -118,11 +114,13 @@ export default function GerenciarDisciplinas() {
 
 /* icons */
 function IconBase({ children }) {
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{children}</svg>;
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {children}
+    </svg>
+  );
 }
 function SearchIcon() { return <IconBase><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></IconBase>; }
-function BellIcon() { return <IconBase><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></IconBase>; }
-function UserIcon() { return <IconBase><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></IconBase>; }
 function PlusIcon() { return <IconBase><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></IconBase>; }
 function BookIcon() { return <IconBase><path d="M2 4h6a3 3 0 0 1 3 3v13a3 3 0 0 0-3-3H2z" /><path d="M22 4h-6a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h6z" /></IconBase>; }
 function FilterIcon() { return <IconBase><line x1="4" y1="6" x2="20" y2="6" /><line x1="7" y1="12" x2="17" y2="12" /><line x1="10" y1="18" x2="14" y2="18" /></IconBase>; }
