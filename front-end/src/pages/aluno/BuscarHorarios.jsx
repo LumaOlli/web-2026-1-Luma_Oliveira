@@ -60,7 +60,7 @@ export default function BuscarHorarios() {
           <a href="#" className="bh-item">Dashboard</a>
           <a href="#" className="bh-item active">Buscar Horarios</a>
           <a href="#" className="bh-item">Meus Agendamentos</a>
-          <a href="#" className="bh-item">Historico</a>
+          <a href="#" className="bh-item">Minhas Monitorias</a>
         </nav>
 
         <div className="bh-bottom">

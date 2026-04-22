@@ -65,7 +65,7 @@ export default function DashboardAluno() {
           <a className="menu-item active" href="#">Dashboard</a>
           <a className="menu-item" href="#">Buscar Horarios</a>
           <a className="menu-item" href="#">Meus Agendamentos</a>
-          <a className="menu-item" href="#">Historico</a>
+          <a className="menu-item" href="#">Minhas Monitorias</a>
         </nav>
 
         <div className="menu-bottom">

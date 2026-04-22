@@ -11,7 +11,7 @@ const menuItems: MenuItem[] = [
   { label: "Dashboard", icon: <DashboardIcon />, to: "/aluno/dashboard" },
   { label: "Buscar Horários", icon: <SearchClockIcon />, to: "/aluno/buscar-horarios" },
   { label: "Agendar Monitoria", icon: <PlusCalendarIcon />, to: "/aluno/agendar" },
-  { label: "Meus Agendamentos", icon: <CalendarListIcon />, to: "/aluno/meus-agendamentos" },
+  { label: "Minhas Monitorias", icon: <CalendarListIcon />, to: "/aluno/minhas-monitorias" },
 ];
 
 export default function SidebarAluno() {
