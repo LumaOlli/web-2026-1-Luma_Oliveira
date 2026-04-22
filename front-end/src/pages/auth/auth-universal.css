@@ -1,0 +1,270 @@
+/* src/pages/auth/auth-universal.css */
+* { box-sizing: border-box; }
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(90deg, #f4f4f7 0%, #eff1f7 55%, #f4f4f7 100%);
+  color: #0c1f4d;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-topbar {
+  height: 82px;
+  background: #fff;
+  border-bottom: 1px solid #e5e8ef;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-topbar strong {
+  font-size: 2.6rem;
+  color: #0a2b7a;
+}
+
+.help-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 999px;
+  background: #667a99;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.auth-card {
+  width: min(1280px, 100%);
+  min-height: 740px;
+  background: #fff;
+  border: 1px solid #dfe4ed;
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-left {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.auth-left.login {
+  background-image: linear-gradient(180deg, rgba(3, 39, 84, 0.88), rgba(2, 26, 61, 0.94));
+}
+
+.auth-left.cadastro {
+  background-image: linear-gradient(180deg, rgba(5, 44, 95, 0.88), rgba(4, 30, 68, 0.94));
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(52, 125, 255, 0.15), transparent 60%);
+}
+
+.left-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px;
+  max-width: 560px;
+}
+
+.left-content h4 {
+  margin: 0 0 26px;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #efd69a;
+}
+
+.left-content h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 3.2vw, 3.8rem);
+  line-height: 1.14;
+  font-weight: 800;
+}
+
+.left-content p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #a5c0e7;
+}
+
+.auth-right {
+  padding: 56px 58px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-right h2 {
+  margin: 0;
+  font-size: 3rem;
+  color: #061f56;
+}
+
+.sub {
+  margin: 10px 0 30px;
+  font-size: 1.05rem;
+  color: #2d3748;
+}
+
+.auth-right label {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #1d2533;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.auth-right input,
+.auth-right select {
+  height: 54px;
+  border: 1px solid #e3e7ee;
+  border-radius: 8px;
+  background: #f3f4f8;
+  padding: 0 14px;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  outline: none;
+}
+
+.row-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.primary-btn {
+  margin-top: 10px;
+  height: 64px;
+  border: none;
+  border-radius: 0;
+  background: #032a63;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 24px 0;
+  position: relative;
+  text-align: center;
+  color: #7e8795;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 43%;
+  height: 1px;
+  background: #e2e6ef;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.switch-text {
+  margin: 0;
+  text-align: center;
+  color: #2b3444;
+  font-size: 1.05rem;
+}
+
+.link {
+  border: none;
+  background: transparent;
+  color: #0a2c67;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.auth-footer {
+  height: 70px;
+  border-top: 1px solid #e5e8ef;
+  background: #f8f9fc;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.auth-footer strong {
+  font-size: 2rem;
+  color: #0a2b7a;
+}
+
+.auth-footer span {
+  color: #2f394b;
+  font-size: 0.95rem;
+}
+
+.auth-footer nav {
+  display: flex;
+  gap: 28px;
+}
+
+.auth-footer nav a {
+  color: #6a768a;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1100px) {
+  .auth-card {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-left {
+    min-height: 280px;
+  }
+
+  .left-content {
+    padding: 30px;
+    max-width: none;
+  }
+
+  .auth-right {
+    padding: 30px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-footer {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  .auth-footer nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
