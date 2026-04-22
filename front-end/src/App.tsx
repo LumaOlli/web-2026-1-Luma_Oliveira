@@ -32,6 +32,7 @@ import CadastrarUsuario from "./pages/coordenador/CadastrarUsuario";
 import EditarUsuario from "./pages/coordenador/EditarUsuario";
 import RemoverUsuario from "./pages/coordenador/RemoverUsuario";
 
+import AuthUniversal from "./pages/auth/AuthUniversal";
 import "./App.css";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Inicial */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/auth" element={<AuthUniversal />} />
 
         {/* MONITOR */}
         <Route path="/dashboard" element={<DashboardMonitoria />} />
