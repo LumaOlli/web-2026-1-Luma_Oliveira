@@ -39,7 +39,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Inicial */}
+        {/* Inicial: auth primeiro */}
+        <Route path="/" element={<Navigate to="/auth" replace />} />
         <Route path="/auth" element={<AuthUniversal />} />
 
         {/* MONITOR */}
@@ -49,7 +50,7 @@ function App() {
         <Route path="/atendimentos" element={<AtendimentosRegistro />} />
         <Route path="/relatorios" element={<RelatoriosM />} />
 
-        {/* ALUNO (com layout e menu lateral único) */}
+        {/* ALUNO */}
         <Route path="/aluno" element={<AlunoLayout />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<DashboardAluno />} />
@@ -90,8 +91,8 @@ function App() {
         <Route path="/configuracoes" element={<SettingsM />} />
         <Route path="/logout" element={<Logout />} />
 
-        {/* fallback global */}
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        {/* fallback global: volta pro auth */}
+        <Route path="*" element={<Navigate to="/auth" replace />} />
       </Routes>
     </BrowserRouter>
   );
