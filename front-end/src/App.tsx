@@ -16,9 +16,21 @@ import DashboardAluno from "./pages/aluno/DashboardAluno";
 import BuscarHorarios from "./pages/aluno/BuscarHorarios";
 import AgendarMonitoria from "./pages/aluno/AgendarMonitoria";
 import ConfirmacaoMonitoria from "./pages/aluno/ConfirmacaoMonitoria";
+import MinhasMonitorias from "./pages/aluno/MinhasMonitorias";
+
+// COORDENADOR
+import DashboardCoord from "./pages/coordenador/DashboardCoord";
+import NovoRegistroCoord from "./pages/coordenador/NovoRegistro";
+import GerenciarDisciplinas from "./pages/coordenador/GerenciarDisciplinas";
+import CadastrarDisciplina from "./pages/coordenador/CadastrarDisciplina";
+import EditarDisciplina from "./pages/coordenador/EditarDisciplina";
+import ExcluirDisciplina from "./pages/coordenador/ExcluirDisciplina";
+import GerenciarUsuarios from "./pages/coordenador/GerenciarUsuarios";
+import CadastrarUsuario from "./pages/coordenador/CadastrarUsuario";
+import EditarUsuario from "./pages/coordenador/EditarUsuario";
+import RemoverUsuario from "./pages/coordenador/RemoverUsuario";
 
 import "./App.css";
-import MinhasMonitorias from "./pages/aluno/MinhasMonitorias";
 
 function App() {
   return (
@@ -27,36 +39,36 @@ function App() {
         {/* Redirecionamento inicial */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        {/* ROTAS DO MONITOR */}
+        {/* MONITOR */}
         <Route path="/dashboard" element={<DashboardMonitoria />} />
         <Route path="/meus-horarios" element={<MeusHorariosM />} />
         <Route path="/agendamentos" element={<AgendamentosM />} />
         <Route path="/atendimentos" element={<AtendimentosRegistro />} />
         <Route path="/relatorios" element={<RelatoriosM />} />
 
-        {/* ROTAS DO ALUNO */}
+        {/* ALUNO */}
         <Route path="/aluno/dashboard" element={<DashboardAluno />} />
         <Route path="/aluno/buscar-horarios" element={<BuscarHorarios />} />
         <Route path="/aluno/minhas-monitorias" element={<MinhasMonitorias />} />
-
-        {/* rota principal do agendamento (igual ao SidebarAluno) */}
         <Route path="/aluno/agendar" element={<AgendarMonitoria />} />
-        <Route
-          path="/aluno/agendar/confirmacao"
-          element={<ConfirmacaoMonitoria />}
-        />
+        <Route path="/aluno/agendar/confirmacao" element={<ConfirmacaoMonitoria />} />
+        <Route path="/aluno/agendar-monitoria" element={<Navigate to="/aluno/agendar" replace />} />
+        <Route path="/aluno/agendar-monitoria/confirmacao" element={<Navigate to="/aluno/agendar/confirmacao" replace />} />
 
-        {/* compatibilidade com rota antiga */}
-        <Route
-          path="/aluno/agendar-monitoria"
-          element={<Navigate to="/aluno/agendar" replace />}
-        />
-        <Route
-          path="/aluno/agendar-monitoria/confirmacao"
-          element={<Navigate to="/aluno/agendar/confirmacao" replace />}
-        />
+        {/* COORDENADOR */}
+        <Route path="/coordenador/dashboard" element={<DashboardCoord />} />
+        <Route path="/coordenador/novo-registro" element={<NovoRegistroCoord />} />
+        <Route path="/coordenador/disciplinas" element={<GerenciarDisciplinas />} />
+        <Route path="/coordenador/disciplinas/nova" element={<CadastrarDisciplina />} />
+        <Route path="/coordenador/disciplinas/editar/:id" element={<EditarDisciplina />} />
+        <Route path="/coordenador/disciplinas/excluir/:id" element={<ExcluirDisciplina />} />
+        <Route path="/coordenador/usuarios" element={<GerenciarUsuarios />} />
+        <Route path="/coordenador/usuarios/novo" element={<CadastrarUsuario />} />
+        <Route path="/coordenador/usuarios/editar/:id" element={<EditarUsuario />} />
+        <Route path="/coordenador/usuarios/remover/:id" element={<RemoverUsuario />} />
+        <Route path="/coordenador" element={<Navigate to="/coordenador/dashboard" replace />} />
 
-        {/* compartilhadas */}
+        {/* SHARED */}
         <Route path="/configuracoes" element={<SettingsM />} />
         <Route path="/aluno/configuracoes" element={<SettingsM />} />
         <Route path="/coordenador/configuracoes" element={<SettingsM />} />
@@ -64,8 +76,8 @@ function App() {
         <Route path="/aluno/logout" element={<Logout />} />
         <Route path="/coordenador/logout" element={<Logout />} />
 
-        {/* fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Fallback único */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
   );
