@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 // MONITOR
@@ -12,6 +13,7 @@ import SettingsM from "./pages/shared/Settings";
 import Logout from "./pages/shared/Logout";
 
 // ALUNO
+import AlunoLayout from "./pages/aluno/AlunoLayout";
 import DashboardAluno from "./pages/aluno/DashboardAluno";
 import BuscarHorarios from "./pages/aluno/BuscarHorarios";
 import AgendarMonitoria from "./pages/aluno/AgendarMonitoria";
@@ -36,7 +38,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Redirecionamento inicial */}
+        {/* Inicial */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
         {/* MONITOR */}
@@ -46,16 +48,29 @@ function App() {
         <Route path="/atendimentos" element={<AtendimentosRegistro />} />
         <Route path="/relatorios" element={<RelatoriosM />} />
 
-        {/* ALUNO */}
-        <Route path="/aluno/dashboard" element={<DashboardAluno />} />
-        <Route path="/aluno/buscar-horarios" element={<BuscarHorarios />} />
-        <Route path="/aluno/minhas-monitorias" element={<MinhasMonitorias />} />
-        <Route path="/aluno/agendar" element={<AgendarMonitoria />} />
-        <Route path="/aluno/agendar/confirmacao" element={<ConfirmacaoMonitoria />} />
+        {/* ALUNO (com layout e menu lateral único) */}
+        <Route path="/aluno" element={<AlunoLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<DashboardAluno />} />
+          <Route path="buscar-horarios" element={<BuscarHorarios />} />
+          <Route path="agendar" element={<AgendarMonitoria />} />
+          <Route path="agendar/confirmacao" element={<ConfirmacaoMonitoria />} />
+          <Route path="minhas-monitorias" element={<MinhasMonitorias />} />
+          <Route path="configuracoes" element={<SettingsM />} />
+          <Route path="logout" element={<Logout />} />
+          <Route path="*" element={<Navigate to="dashboard" replace />} />
+        </Route>
+
+        {/* aliases antigos do aluno */}
         <Route path="/aluno/agendar-monitoria" element={<Navigate to="/aluno/agendar" replace />} />
-        <Route path="/aluno/agendar-monitoria/confirmacao" element={<Navigate to="/aluno/agendar/confirmacao" replace />} />
+        <Route
+          path="/aluno/agendar-monitoria/confirmacao"
+          element={<Navigate to="/aluno/agendar/confirmacao" replace />}
+        />
+        <Route path="/aluno/meus-agendamentos" element={<Navigate to="/aluno/minhas-monitorias" replace />} />
 
         {/* COORDENADOR */}
+        <Route path="/coordenador" element={<Navigate to="/coordenador/dashboard" replace />} />
         <Route path="/coordenador/dashboard" element={<DashboardCoord />} />
         <Route path="/coordenador/novo-registro" element={<NovoRegistroCoord />} />
         <Route path="/coordenador/disciplinas" element={<GerenciarDisciplinas />} />
@@ -66,17 +81,15 @@ function App() {
         <Route path="/coordenador/usuarios/novo" element={<CadastrarUsuario />} />
         <Route path="/coordenador/usuarios/editar/:id" element={<EditarUsuario />} />
         <Route path="/coordenador/usuarios/remover/:id" element={<RemoverUsuario />} />
-        <Route path="/coordenador" element={<Navigate to="/coordenador/dashboard" replace />} />
+        <Route path="/coordenador/configuracoes" element={<SettingsM />} />
+        <Route path="/coordenador/logout" element={<Logout />} />
+        <Route path="/coordenador/*" element={<Navigate to="/coordenador/dashboard" replace />} />
 
         {/* SHARED */}
         <Route path="/configuracoes" element={<SettingsM />} />
-        <Route path="/aluno/configuracoes" element={<SettingsM />} />
-        <Route path="/coordenador/configuracoes" element={<SettingsM />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/aluno/logout" element={<Logout />} />
-        <Route path="/coordenador/logout" element={<Logout />} />
 
-        {/* Fallback único */}
+        {/* fallback global */}
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
