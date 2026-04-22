@@ -52,7 +52,7 @@ export default function SidebarAluno() {
           <span>Configurações</span>
         </NavLink>
 
-        <NavLink to="/aluno/logout" className="schedule-menu-item footer logout">
+        <NavLink to="/logout" className="schedule-menu-item footer logout">
           <span className="schedule-menu-icon"><LogoutIcon /></span>
           <span>Sair</span>
         </NavLink>
