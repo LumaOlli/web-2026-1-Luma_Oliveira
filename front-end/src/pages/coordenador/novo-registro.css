@@ -1,0 +1,209 @@
+/* src/pages/coordenador/novo-registro-coord.css */
+.nr-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f3f4f9;
+  color: #0b1f4d;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.nr-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nr-topbar {
+  height: 82px;
+  background: #f8f9fc;
+  border-bottom: 1px solid #dde2ea;
+  padding: 0 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nr-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #0d2a61;
+}
+
+.nr-brand strong {
+  font-size: 2.75rem;
+  font-weight: 800;
+  position: relative;
+  padding-right: 22px;
+}
+.nr-brand strong::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 4px;
+  width: 1px;
+  height: 32px;
+  background: #d6dce7;
+}
+
+.nr-brand span {
+  font-size: 2.3rem;
+  font-weight: 500;
+}
+
+.nr-back-btn {
+  border: none;
+  background: transparent;
+  color: #566989;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.9rem;
+  cursor: pointer;
+}
+.nr-back-btn .nr-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.nr-content {
+  padding: 34px 60px 40px;
+}
+
+.nr-hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.nr-hero h1 {
+  margin: 0 0 8px;
+  color: #051f57;
+  font-size: 4.7rem;
+  line-height: 1.05;
+}
+
+.nr-hero p {
+  margin: 0 auto;
+  max-width: 760px;
+  color: #2e3a4c;
+  font-size: 2.35rem;
+  line-height: 1.45;
+}
+
+.nr-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(380px, 560px));
+  justify-content: center;
+  gap: 26px;
+}
+
+.nr-card {
+  position: relative;
+  background: #f0f2f7;
+  border: 1px solid #e3e7ef;
+  border-radius: 0;
+  padding: 48px 52px 44px;
+  min-height: 470px;
+  overflow: hidden;
+}
+
+.nr-card h2 {
+  margin: 34px 0 14px;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  color: #081f56;
+}
+
+.nr-card p {
+  margin: 0;
+  max-width: 470px;
+  color: #2f3a4d;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.nr-card-bg {
+  position: absolute;
+  right: -4px;
+  top: -2px;
+  color: #d9dde6;
+  pointer-events: none;
+}
+.nr-card-bg-user { width: 180px; }
+.nr-card-bg-book { width: 180px; }
+
+.nr-ghost-icon {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nr-icon-box {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-items: center;
+}
+.nr-icon-box .nr-icon {
+  width: 34px;
+  height: 34px;
+  stroke-width: 2.1;
+}
+.nr-icon-box.blue {
+  background: #042a64;
+  color: #fff;
+}
+.nr-icon-box.gold {
+  background: #946400;
+  color: #fff;
+}
+
+.nr-link {
+  margin-top: 70px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.nr-link .nr-icon {
+  width: 21px;
+  height: 21px;
+}
+.nr-link.blue { color: #081f56; }
+.nr-link.gold { color: #8a5a00; }
+
+@media (max-width: 1200px) {
+  .nr-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .nr-card {
+    min-height: 420px;
+  }
+
+  .nr-content {
+    padding: 24px;
+  }
+
+  .nr-brand strong {
+    font-size: 1.6rem;
+  }
+
+  .nr-brand span {
+    font-size: 1.2rem;
+  }
+
+  .nr-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .nr-hero p {
+    font-size: 1.1rem;
+  }
+}
